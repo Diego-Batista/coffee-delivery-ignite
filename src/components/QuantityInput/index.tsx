@@ -1,9 +1,13 @@
 import { Minus, Plus } from "phosphor-react";
 import { IconWrapper, QuantityContainer } from "./stryles";
 
-export function QuantityInput() {
+interface QuantityInputProps {
+    size?: "small" | "medium" 
+}
+
+export function QuantityInput({ size = "medium" }: QuantityInputProps) {
     return (
-        <QuantityContainer>
+        <QuantityContainer size={size}>
             <IconWrapper>
                 <Minus size={14} weight="fill"/>
             </IconWrapper>
