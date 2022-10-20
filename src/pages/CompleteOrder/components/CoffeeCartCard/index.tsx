@@ -3,18 +3,44 @@ import Americano from '../../../../../public/coffees/americano.png'
 import { RegularText } from "../../../../components/Typograph";
 import { QuantityInput } from "../../../../components/QuantityInput";
 import { Trash } from "phosphor-react";
+import { CartItem } from "../../../../contexts/CartContext";
+import { formatMoney } from "../../../../utils/FormatMoney";
+import { useCart } from "../../../../hooks/useCart";
 
-export function CoffeeCartCard() {
+interface CoffeeCartCardProps {
+    coffee: CartItem
+}
+
+export function CoffeeCartCard({ coffee }: CoffeeCartCardProps) {
+    const { changeCartItemQuantity, removeCartItem } = useCart()
+
+    function handleIncrease() {
+        changeCartItemQuantity(coffee.id, 'increase')
+    }
+
+    function handleDecrease() {
+        changeCartItemQuantity(coffee.id, 'decrease')
+    }
+
+    function handleRemove() {
+        removeCartItem(coffee.id)
+    }
+    const coffeeTotal = coffee.price * coffee.quantity
+    const formatPrice = formatMoney(coffeeTotal)
     return(
         <CoffeeCartCardContainer>
             <div>
-                 <img src={Americano} alt="" />
+                 <img src={`/coffees/${coffee.photo}`} alt="" />
                  <div>
-                    <RegularText color="subtitle">Expresso Tradicional</RegularText>
+                    <RegularText color="subtitle">{coffee.name}</RegularText>
 
                     <ActionsContainer>
-                        <QuantityInput size="small" />
-                        <RemoveButton>
+                        <QuantityInput 
+                            size="small" 
+                            OnIncrease={handleIncrease} 
+                            OnDecrease={handleDecrease} 
+                            quantity={coffee.quantity} />
+                        <RemoveButton onClick={handleRemove}>
                             <Trash size={22} />
                             Remover
                         </RemoveButton>
@@ -23,7 +49,7 @@ export function CoffeeCartCard() {
             </div>
 
             <p>
-            R$ 9,90
+            R$ {formatPrice}
             </p>
         </CoffeeCartCardContainer>
     )
