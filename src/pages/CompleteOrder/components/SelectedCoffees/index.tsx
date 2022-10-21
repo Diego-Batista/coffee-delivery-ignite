@@ -20,7 +20,6 @@ export function SelectedCoffees() {
                 ))}
 
                 <ConfirmationSection/>
-                <Button text="Confirmar pedido"/>
             </DetailsContainer>
         </SelectedCoffeesContainer>
     )
