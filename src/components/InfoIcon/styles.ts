@@ -7,6 +7,10 @@ interface ContainerProps {
 export const Container = styled.div<ContainerProps>`
   display: flex;
   align-items: center;
+
+  @media (max-width: 768px) {
+    margin-top: 0.5rem;
+  }
   
 
   > div {

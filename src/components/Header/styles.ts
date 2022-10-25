@@ -17,6 +17,12 @@ export const HeaderContainer = styled.header`
     align-items: center;
     justify-content: space-between;
   }
+
+  @media (max-width: 768px) {
+    height: 5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 `;
 
 export const HeaderButtonsContainer = styled.div`

@@ -7,12 +7,20 @@ export const SelectedCoffeesContainer = styled.div`
     flex-direction: column;
     gap: 0.75rem;
     width: 40rem;
+
+    @media (max-width: 768px) {
+        width: 100%;
+    }
 `
 
 export const DetailsContainer = styled(SectionBaseStyle)`
     border-radius: 6px 44px 6px 44px;
     display: flex;
     flex-direction: column;
+
+    @media (max-width: 768px) {
+        margin-bottom: 1rem;
+    }
 `
 
 export const ConfirmationSectionContainer = styled.section`
@@ -25,4 +33,6 @@ export const ConfirmationSectionContainer = styled.section`
         align-items: center;
         justify-content: space-between;
     }
+
+    
 `

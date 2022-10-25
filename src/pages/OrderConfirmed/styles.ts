@@ -14,6 +14,25 @@ export const OrderConfirmedContainer =  styled.div`
         display: flex;
         align-items: center;
         justify-content: space-between;
+
+
+        @media (max-width: 768px) {
+            flex-direction: column;
+            padding-left: 1rem;
+            padding-right: 1rem;
+
+            img {
+                width: 100%;
+                margin-top: 1rem;
+            }
+        }
+    } 
+    
+    @media (max-width: 768px) {
+        > div {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
     }
 `
 
@@ -35,4 +54,9 @@ export const OrderDetailsConatiner = styled.div`
         border-radius: 7px 37px 7px 37px;
         background: linear-gradient(102.89deg, #DBAC2C 2.61%, #8047F8 98.76%);
     }
+
+    @media (max-width: 768px) {
+        min-width: 100%;    
+    }
+    
 `

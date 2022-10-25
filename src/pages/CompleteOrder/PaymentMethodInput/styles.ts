@@ -16,6 +16,8 @@ export const PaymentMethodInputContainer = styled.div`
             }
         `}
     }
+
+    
 `
 
 export const ContentContainer = styled.div`
@@ -44,4 +46,6 @@ export const ContentContainer = styled.div`
 
 
     user-select: none;
+
+    
 `
